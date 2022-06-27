@@ -3,12 +3,12 @@
 #include <stdlib.h>
 
 /**
- * check__cycle - function to check if a there is a loop in a linked list
+ * check_cycle - function to check if a there is a loop in a linked list
  * @list: pointer to the structure
  * Return: 0 or 1
  */
 
-int check__cycle(listint_t *list)
+int check_cycle(listint_t *list)
 {
 	listint_t *single_pace, *double_pace;
 
@@ -22,7 +22,7 @@ int check__cycle(listint_t *list)
 
 		if (single_pace == double_pace)
 		{
-			printf("There is a cycle.")
+			printf("There is a cycle.");
 			return (1);
 		}
 	}
