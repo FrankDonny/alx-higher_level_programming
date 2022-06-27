@@ -2,5 +2,6 @@
 python3 -m py_compile $PYFILE
 mv __pycache__/main.cpython-38.pyc ./
 mv main.cpython-38.pyc main.pyc
+chmod u+x main.pyc
 export PYFILE'c'=main.pyc
 rm -r __pycache__
