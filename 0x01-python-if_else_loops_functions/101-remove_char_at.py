@@ -4,8 +4,8 @@ def remove_char_at(str, n):
     if n > len(str) or n < 0:
         return str
     else:
-        for i in str:
-            if i == str[n]:
+        for a in str:
+            if a == str[n]:
                 continue
-            string += i
+            string += a
     return string
