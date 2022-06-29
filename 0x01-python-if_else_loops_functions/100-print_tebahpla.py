@@ -1,12 +1,8 @@
 #!/usr/bin/python3
 def printMixChar():
-    even = ""
-    for i in range(-90, -64):
+    for i in range(-122, -96):
         i = i * -1
-        if i % 2 == 0:
-            return i = chr(i) + 32
-        else:
-            return chr(i)
+        print("{:c}".format(i if (i % 2 == 0) else (i - 32)), end='')
 
 
-print(printMixChar(), end="")
+printMixChar()
