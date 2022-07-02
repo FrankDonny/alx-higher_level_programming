@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def add_tuple(tuple_aa=(), tuple_bb=()):
-    length_a = len(list(tuple_aa))
-    length_b = len(list(tuple_bb))
+    length_a = len(list(tuple_aa)) - 1
+    length_b = len(list(tuple_bb)) - 1
     if not tuple_aa:
         tuple_aa = list(tuple_aa) + [0, 0]
     elif not tuple_bb:
