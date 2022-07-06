@@ -6,6 +6,4 @@ def search_replace(my_list, search, replace):
     for i in range(0, len(newlist)):
         if newlist[i] == search:
             newlist[i] = replace
-         else:
-            newlist[i] = newlist[i]
     return newlist
