@@ -2,6 +2,5 @@
 def best_score(a_dictionary):
     if not a_dictionary:
         return None
-    a_dictionary = dict(a_dictionary)
-    maxi = max(a_dictionary)
+    maxi = max(a_dictionary.keys(), key=(lambda x: a_dictionary[x]))
     return maxi
