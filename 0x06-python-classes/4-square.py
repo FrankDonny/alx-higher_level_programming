@@ -13,15 +13,15 @@ class Square:
             """The size must be gt or eq to 0 else raise an exception"""
             if self.__size < 0:
                 raise ValueError("size must be >= 0")
-        
+
     """method that returns the area of a square"""
     def area(self):
         return self.__size * self.__size
-        
+
     @property
     def size(self):
         return self.__size
-        
+
     @size.setter
     def size(self, value):
         if isinstance(value, str):
