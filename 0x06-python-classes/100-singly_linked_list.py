@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """A node Class"""
+
+
 class Node:
     def __init__(self, data, next_node=None):
         self.__data = data
         self.__next_node = next_node
-    
+
     @property
     def data(self):
         return self.__data
@@ -25,8 +27,9 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
-"""A linked list class"""
+
 class SinglyLinkedList:
+    """A linked list class"""
     def __init__(self):
         self.__head = None
 
