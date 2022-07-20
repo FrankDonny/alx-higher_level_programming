@@ -9,12 +9,12 @@ class Square:
 
     """method that returns the area of a square"""
     def area(self):
-           return self.__size * self.__size
+        return self.__size * self.__size
 
     @property
     def size(self):
         return self.__size
-    
+
     @size.setter
     def size(self, value):
         """The size must be an in else raise an exception"""
