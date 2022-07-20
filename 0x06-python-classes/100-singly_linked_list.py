@@ -1,33 +1,45 @@
 #!/usr/bin/python3
-"""A node Class"""
+"""
+A node Class that initializes a node
+"""
 
 
 class Node:
-    """initializing the Node"""
+    """
+    initializing the Node
+    """
     def __init__(self, data, next_node=None):
         self.__data = data
         self.__next_node = next_node
 
     @property
-    """Node data property"""
     def data(self):
+        """
+        Node data property
+        """
         return self.__data
 
     @data.setter
-    """Node data Setter"""
     def data(self, value):
+        """
+        Node data Setter
+        """
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
 
     @property
-    """Node next_node property"""
     def next_node(self):
+        """
+        Node next_node property
+        """
         return self.__next_node
 
     @next_node.setter
-    """Node next_node Setter"""
     def next_node(self, value):
+        """
+        Node next_node Setter
+        """
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
@@ -37,12 +49,16 @@ class Node:
         
         
 class SinglyLinkedList:
-    """initializing the linked list"""
+    """
+    initializing the linked list
+    self.__head pointer to the first node
+    """
     def __init__(self):
         self.__head = None
 
     def sorted_insert(self, value):
-        """sort method to sort the values and inser
+        """
+        sort method to sort the values and inser
         nodes
         """
         newNode = Node(value)
@@ -66,6 +82,10 @@ class SinglyLinkedList:
         temp.next_node = newNode
 
     def __str__(self):
+        """
+        aids in printing the nodes in a readable form
+        else the nodes addresses will be printed
+        """
         temp = self.__head
         if temp is None:
             return ("")
