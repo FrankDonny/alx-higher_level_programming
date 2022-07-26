@@ -1,0 +1,16 @@
+"""
+test file to test the text indentation module
+"""
+>>> text_indentation = __import__('5-text_indentation').text_identation
+>>> my_text = "Donny: is gradually and steadily becoming a software engineer. are you proud of me? if not don't worry, I'm proud of myself."
+>>> text_indentation(my_text)
+Donny:
+
+is gradually and steadily becoming a software engineer.
+
+are you proud of me?
+
+if not don't worry, I'm proud of myself.
+>>> text_indentation(1542)
+Traceback (most recent call last):
+TypeError: text must be a string
