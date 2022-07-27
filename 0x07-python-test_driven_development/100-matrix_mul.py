@@ -16,22 +16,21 @@ def matrix_mul(m_a, m_b):
         raise TypeError("m_a must be a list")
     if not isinstance(m_b, list):
         raise TypeError("m_b must be a list")
-    
     for i in m_a:
         if not isinstance(i, list):
             raise TypeError("m_a must be a list of lists")
         if len(i) != len(m_a[0]):
-            raise TypeError("m_a should contain only integers or floats")
+            raise TypeError("each row of m_a must be of the same size")
     for j in m_b:
         if not isinstance(j, list):
             raise TypeError("m_b must be a list of lists")
         if len(j) != len(m_b[0]):
-            raise TypeError("m_a should contain only integers or floats")
-    
-    if len(m_a) == 0 or len([x for x in m_a]) == 0:
-        raise ValueError("m_a cant be empty")
-    if len(m_b) == 0 or len([y for y in m_b]) == 0:
-        raise ValueError("m_b cant be empty")
+            raise TypeError("each row of m_b must be of the same size")
+
+    if m_a == [] or [x for x in m_a] == [[]]:
+        raise ValueError("m_a can't be empty")
+    if m_b == [] or [y for y in m_b] == [[]]:
+        raise ValueError("m_b can't be empty")
 
     for inner in m_a:
         for a in inner:
@@ -41,9 +40,6 @@ def matrix_mul(m_a, m_b):
         for b in inner1:
             if not isinstance(b, int or float):
                 raise TypeError("m_b should contain only integers or floats")
-
-    if len(m_a[0]) != len(m_b):
-        raise ValueError("m_a and m_b cant be multiplied")
 
     result = []
     for row in range(len(m_a)):
