@@ -7,11 +7,13 @@ Rectangle definition module
 class Rectangle:
     """set the width and the height"""
     def __init__(self, width=0, height=0):
+        """initialize the width/height"""
         self.width = width
         self.height = height
 
     @property
     def width(self):
+        """set and returns private width"""
         return self.__width
 
     @width.setter
@@ -24,6 +26,7 @@ class Rectangle:
 
     @property
     def height(self):
+        """set and returns private height"""
         return self.__height
 
     @width.setter
