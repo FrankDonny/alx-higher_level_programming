@@ -26,6 +26,35 @@ class Rectangle:
             return 0
         return 2 * (self.__height + self.__width)
 
+    def __str__(self):
+        """returns printable string representation of the rectangle"""
+        string = ""
+        if self.__width != 0 and self.__height != 0:
+            string += "\n".join(str(self.print_symbol) * self.__width
+                                for j in range(self.__height))
+        return string
+
+    def __repr__(self):
+        """returns the string representation of the class"""
+        return f"{self.__width}, {self.__height}"
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """staticmethod to compare rectangle size"""
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        if rect_2.area() > rect_1.area():
+            return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """classmethod to return a square figure"""
+        return cls(size, size)
+
     @property
     def width(self):
         """getter for the width"""
@@ -53,15 +82,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-    def __str__(self):
-        """returns printable string representation of the rectangle"""
-        string = ""
-        if self.__width != 0 and self.__height != 0:
-            string += "\n".join(str(self.print_symbol) * self.__width
-                                for j in range(self.__height))
-        return string
-
-    def __repr__(self):
-        """returns the string representation of the class"""
-        return f"{self.__width}, {self.__height}"
