@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+"""
+Rectangle definition module
+"""
+
+
 class Rectangle:
+    """set the width and the height"""
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
