@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-"""Mylist module"""
+"""
+containing Mylist module
+"""
 
 
 class MyList(list):
     """Mylist class inherits from the list class"""
     def __init__(self):
+        """initialize the class"""
         super(MyList, self).__init__()
 
     def print_sorted(self):
