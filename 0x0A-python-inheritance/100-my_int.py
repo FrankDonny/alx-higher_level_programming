@@ -1,15 +1,18 @@
 #!/usr/bin/python3
+"""Containing the MyInt module"""
+
 
 class MyInt(int):
+    """MyInt module class"""
     def __init__(self, num):
+        """Initializing myInt class"""
         super(MyInt, self).__init__()
         self.num = num
 
-    def rebel(self):
-        return not self.num
+    def __eq__(self, other):
+        """revert the __eq__ dunder method"""
+        return self.num != other
 
-
-my_i = MyInt(3)
-print(my_i)
-print(my_i == 3)
-print(my_i != 3)
+    def __ne__(self, other):
+        """revert the __ne__ dunder method"""
+        return self.num == other
