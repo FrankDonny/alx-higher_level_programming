@@ -6,12 +6,11 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 length = len(argv)
 ls = []
+filename = "add_item.json"
+try:
+    ls = load_from_json_file(filename)
+except FileNotFoundError:
+    ls = []
 for i in range(1, length):
     ls.append(argv[i])
-
-filename = "add_item.json"
 save_to_json_file(ls, filename)
-try:
-    ls = load_from_json_file("add_item.json")
-except Exception:
-    ls = []
