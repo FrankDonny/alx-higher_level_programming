@@ -11,3 +11,7 @@ for i in range(1, length):
 
 filename = "add_item.json"
 save_to_json_file(ls, filename)
+try:
+    ls = load_from_json_file("add_item.json")
+except Exception:
+    ls = []
