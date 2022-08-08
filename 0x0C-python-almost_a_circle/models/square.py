@@ -8,20 +8,10 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
 
-    def update(self, *args, **kwargs):
+        def update(self, *args, **kwargs):
         """assigns an argument to each attribute"""
 
-        if args and len(args) != 0:
-            ls = [x for x in args]
-            if len(ls) == 1:
-                self.id = ls[0]
-            elif len(ls) == 2:
-                self.size = ls[1]
-            elif len(ls) == 3:
-                self.x = ls[2]
-            elif len(ls) == 4:
-                self.y = ls[3]
-        else:
+        if not args:
             for k, v in kwargs.items():
                 if k == "id":
                     self.id = v
@@ -31,6 +21,16 @@ class Square(Rectangle):
                     self.x = v
                 elif k == "y":
                     self.y = v
+        else:
+            ls = [x for x in args]
+            if len(ls) == 1:
+                self.id = ls[0]
+            if len(ls) == 2:
+                self.size = ls[1]
+            if len(ls) == 3:
+                self.x = ls[2]
+            if len(ls) == 4:
+                self.y = ls[3]
 
     def to_dictionary(self):
         """return a dictionary representation of instances"""
