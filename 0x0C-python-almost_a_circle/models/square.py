@@ -8,7 +8,7 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
 
-        def update(self, *args, **kwargs):
+    def update(self, *args, **kwargs):
         """assigns an argument to each attribute"""
 
         if not args:
