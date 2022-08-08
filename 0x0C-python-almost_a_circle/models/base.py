@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """The base module in the model package"""
 import json
-import csv
 
 
 class Base:
@@ -18,6 +17,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """converts python strings to json strings"""
         if len(list_dictionaries) == 0:
             return "[]"
         for i in list_dictionaries:
@@ -26,10 +26,12 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """converts json strings to python strings"""
         return json.loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """saving json strings to a json file"""
         with open(f"{cls.__name__}.json", "w", encoding="utf-8") as theFile:
             if list_objs is None:
                 theFile.write("[]")
@@ -46,6 +48,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """This method returns a list of instances"""
         try:
             with open(f"{cls.__name__}.json", "r") as jsonfile:
                 list_dicts = Base.from_json_string(jsonfile.read())
@@ -55,22 +58,30 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        with open(f"{cls.__name__}.csv", "w", encoding="utf-8") as csvFile:
-            if cls.__name__ == "Rectangle":
-                field_names = ['id', 'width', 'height', 'x', 'y']
-            elif cls.__name__ == "Square":
-                field_names = ['id', 'size', 'x', 'y']
-            csv_write = csv.DictWriter(csvFile, fieldnames=field_names)
-            for line in list_objs:
-                csv_write.writerow(line)
+        """Serializing of list of objects to csv file"""
+
+        filename = "{}.csv".format(cls.__name__)
+        attrs = ('id', 'size', 'width', 'height', 'x', 'y')
+        with open(filename, "w", encoding="utf-8") as f:
+            for o in list_objs:
+                d = o.to_dictionary()
+                t = []
+                for attr in attrs:
+                    if attr not in d:
+                        continue
+                    t.append(str(d.get(attr)))
+                f.write(",".join(t))
+                f.write("\n")
 
     @classmethod
     def load_from_file_csv(cls):
-        with open(f"{cls.__name__}.csv", "w", encoding="utf-8") as csvFile:
-            if cls.__name__ == "Rectangle":
-                field_names = ['id', 'width', 'height', 'x', 'y']
-            elif cls.__name__ == "Square":
-                field_names = ['id', 'size', 'x', 'y']
-            csv_read = csv.DictReader(csvFile, fieldnames=field_names)
-            csv_read = [dict([k, int(v)] for k, v in d.items()) for d in list_dicts]
-            return [cls.create(**d) for d in list_dicts]
+        """de-serializing of deserializing of csv file"""
+        filename = "{}.csv".format(cls.__name__)
+        list_objs = []
+        with open(filename, "r", encoding="utf-8") as f:
+            for line in f:
+                arguments = line[:-1].split(",")
+                o = cls(1, 1)
+                o.update(*[int(x) for x in arguments])
+                list_objs.append(o)
+        return list_objs

@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """The Rectangle module in the model package"""
 import sys
-
 from models.base import Base
 
 
@@ -29,7 +28,6 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """assigns an argument to each attribute"""
-
         if not args:
             for k, v in kwargs.items():
                 if k == "id":
@@ -56,12 +54,20 @@ class Rectangle(Base):
                 self.y = ls[4]
 
     def to_dictionary(self):
-        _dict = {"width": self.width, "height": self.height, "x": self.x, "y": self.y, "id": self.id}
+        """return a dictionary representation of instances"""
+        _dict = {
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y,
+                "id": self.id
+            }
         return _dict
 
     def __str__(self):
         """returns a human-readable string format of the class"""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - \
+                {self.width}/{self.height}"
 
     @property
     def width(self):
@@ -118,4 +124,3 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""The Square module in the model package"""
 from models.rectangle import Rectangle
 
 
@@ -32,6 +33,7 @@ class Square(Rectangle):
                     self.y = v
 
     def to_dictionary(self):
+        """return a dictionary representation of instances"""
         _dict = {"size": self.size, "x": self.x, "y": self.y, "id": self.id}
         return _dict
 
@@ -42,9 +44,11 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """the size property"""
         return self.width
 
     @size.setter
     def size(self, value):
+        """the size setter"""
         self.width = value
         self.height = value
