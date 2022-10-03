@@ -1,7 +1,9 @@
 #!/usr/bin/node
 const args = process.argv;
-if ((args.length - 2) === 0) {
+args.shift();
+args.shift();
+if (!args[0]) {
   console.log('No argument');
 } else {
-  console.log(args[2]);
+  console.log(args[0]);
 }
