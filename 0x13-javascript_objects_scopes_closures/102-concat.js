@@ -15,7 +15,7 @@ fs.readFile(args[2], 'utf8', (err, data) => {
     if (err) {
       console.log(err);
     }
-    fs.appendFile(args[4], '\n' + data1, err => {
+    fs.appendFile(args[4], '\n' + data1 + '\n', err => {
       if (err) {
         console.log(err);
       }
