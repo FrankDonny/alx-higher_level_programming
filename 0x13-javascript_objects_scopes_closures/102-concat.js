@@ -1,24 +1,6 @@
 #!/usr/bin/node
 const args = process.argv;
 const fs = require('fs');
-
-fs.readFile(args[2], 'utf8', (err, data) => {
-  if (err) {
-    console.log(err);
-  }
-  fs.writeFile(args[4], data, err => {
-    if (err) {
-      console.log(err);
-    }
-  });
-  fs.readFile(args[3], 'utf8', (err, data1) => {
-    if (err) {
-      console.log(err);
-    }
-    fs.appendFile(args[4], '\n' + data1 + '\n', err => {
-      if (err) {
-        console.log(err);
-      }
-    });
-  });
-});
+const data1 = fs.readFileSync(args[2], 'utf8');
+const data2 = fs.readFileSync(args[3], 'utf8');
+fs.writeFileSync(args[4], data1 + '\n' + data2 + '\n');
