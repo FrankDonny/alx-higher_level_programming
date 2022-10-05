@@ -1,14 +1,16 @@
 let dict = require('./101-data').dict
+console.log(dict);
 
-newDict = {};
-li = [];
+let newDict = {};
 for (let key in dict) {
-
-  // if (newDict[dict[key]].includes(dict[key])) {
-  //   newDict[key].push(dict[key]);
-  // } else {
-    newDict[dict[key]] = key;
-  // }
+    for (let newKey in newDict) {
+        if (dict[key] === newKey) {
+            newDict[newKey].push(key);
+        } else {
+            newDict[dict[key]] = key;
+        }
+    }
 }
-
+// console.log(newDict[1])
+console.log();
 console.log(newDict);
