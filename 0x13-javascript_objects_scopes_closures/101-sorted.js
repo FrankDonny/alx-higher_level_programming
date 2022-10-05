@@ -1,16 +1,9 @@
-let dict = require('./101-data').dict
-console.log(dict);
-
-let newDict = {};
-for (let key in dict) {
-    for (let newKey in newDict) {
-        if (dict[key] === newKey) {
-            newDict[newKey].push(key);
-        } else {
-            newDict[dict[key]] = key;
-        }
-    }
+const dict = require('./101-data').dict;
+const newDict = {};
+for (const key in dict) {
+  if (newDict[dict[key]] === undefined) {
+    newDict[dict[key]] = [];
+  }
+  newDict[dict[key]].push(key);
 }
-// console.log(newDict[1])
-console.log();
 console.log(newDict);
