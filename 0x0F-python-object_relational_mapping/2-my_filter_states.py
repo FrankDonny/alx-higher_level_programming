@@ -10,7 +10,7 @@ if __name__ == '__main__':
     conn = MySQLdb.connect(host='localhost', port=3306, user=argv[1],
                            password=argv[2], database=argv[3])
     cur = conn.cursor()
-    cur.execute(f"SELECT * FROM states WHERE name REGEXP '{argv[4]}' "
+    cur.execute(f"SELECT * FROM states WHERE states.name = '{argv[4]}' "
                 "ORDER BY id")
     row = cur.fetchall()
     for i in row:
