@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-""" script that prints the State object with the name
-passed as argument from the database hbtn_0e_6_usa
 """
-from model_state import Base, State
+script 14-model_city_fetch_by_state.py that prints all City objects
+from the database hbtn_0e_14_usa
+"""
+from model_city import Base, City, State
 from sqlalchemy.orm import sessionmaker
 from sys import argv
 from sqlalchemy import create_engine
@@ -13,10 +14,7 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
     session = sessionmaker(bind=engine)
     session = session()
-    state = session.query(State).filter(State.name == argv[4]).first()
-
-    if state:
-        print(state.id)
-    else:
-        print('Not found')
+    city_state = session.query(City, State).filter(City.state_id == State.id).order_by(City.id)
+    for cities, state in city_state:
+        print(f'{state.name}: ({cities.id}) {cities.name}')
     session.close()
