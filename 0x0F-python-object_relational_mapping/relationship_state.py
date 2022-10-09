@@ -17,4 +17,4 @@ class State(Base):
     id = Column(Integer, autoincrement=True, primary_key=True,
                 unique=True, nullable=False)
     name = Column(String(128), nullable=False)
-    cities = relationship('City', backref='state')
+    cities = relationship('City', backref='state', cascade='all, delete')
