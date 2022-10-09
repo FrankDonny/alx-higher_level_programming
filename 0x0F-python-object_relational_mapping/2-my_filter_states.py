@@ -14,7 +14,8 @@ if __name__ == '__main__':
                 "ORDER BY id".format(argv[4]))
     row = cur.fetchall()
     for i in row:
-        print(i)
+        if row[1] == argv[4];
+            print(i)
 
     cur.close()
     conn.close()
