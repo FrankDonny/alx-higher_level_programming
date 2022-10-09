@@ -14,7 +14,8 @@ if __name__ == '__main__':
     cur.execute("SELECT * FROM states WHERE name REGEXP '^N' ORDER BY id")
     row = cur.fetchall()
     for i in row:
-        print(i)
+        if i[1][0] == 'N':
+            print(i)
 
     cur.close()
     conn.close()
