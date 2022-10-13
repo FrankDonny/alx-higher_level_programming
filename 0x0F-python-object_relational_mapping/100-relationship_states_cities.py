@@ -13,9 +13,9 @@ if __name__ == '__main__':
                            .format(argv[1], argv[2], argv[3]))
     Base.metadata.create_all(engine)
     session = sessionmaker()(bind=engine)
-    session = session()
 
     new_state = State(name='California')
+    session.commit()
     new_city = City(name='San Francisco', state=new_state)
     session.add(new_city)
     session.add(new_state)
