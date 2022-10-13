@@ -10,7 +10,7 @@ if __name__ == '__main__':
                            .format(argv[1], argv[2], argv[3]))
     Base.metadata.create_all(engine)
     session = sessionmaker()(bind=engine)
-    
+
     cities = session.query(City).order_by(City.id)
     for city in cities:
         print(f"{city.id}: {str(city.name)} -> {city.state.name}")
