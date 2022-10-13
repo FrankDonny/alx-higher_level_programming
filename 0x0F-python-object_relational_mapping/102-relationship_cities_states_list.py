@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+script that lists all City objects from the database hbtn_0e_101_usa
+"""
 from relationship_city import Base, City
 from sqlalchemy.orm import sessionmaker
 from sys import argv
