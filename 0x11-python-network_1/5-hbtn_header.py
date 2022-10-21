@@ -6,4 +6,4 @@ from sys import argv
 if __name__ == '__main__':
     req = requests.get(argv[1])
     html = req.headers
-    print(html['X-Request-Id'])
+    print(html.get('X-Request-Id'))
