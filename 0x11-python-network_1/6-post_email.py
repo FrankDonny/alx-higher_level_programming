@@ -8,7 +8,3 @@ if __name__ == '__main__':
     value = {'email': argv[2]}
     data = requests.post(argv[1], value)
     print(data.text)
-    # data = urllib.parse.urlencode(value)
-    # data = data.encode('utf-8')
-    # with urllib.request.urlopen(url, data) as response:
-    #     print((response.read()).decode('utf-8'))
