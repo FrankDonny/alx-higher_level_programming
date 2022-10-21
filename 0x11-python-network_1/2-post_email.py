@@ -8,4 +8,4 @@ value = {'email': argv[2]}
 data = urllib.parse.urlencode(value)
 data = data.encode('utf-8')
 with urllib.request.urlopen(url, data) as response:
-    print(response.read())
+    print((response.read()).decode('utf-8'))
