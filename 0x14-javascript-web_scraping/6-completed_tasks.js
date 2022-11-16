@@ -5,16 +5,17 @@ const url = args[0];
 
 request(url, function (err, res, body) {
   if (err) { console.log(err); } else {
-    const obj = JSON.parse(body);
-    const object = {};
-    let count = 0;
-    for (let num = 1; num < 5; num++) {
-      // console.log(typeof (obj[0]['completed']));
-      if (obj.userId === num && obj.completed === false) {
-        count++;
+    const completed = {};
+  const jsonBody = JSON.parse(body);
+  for (const task of jsonBody) {
+    if (task.completed) {
+      if (completed[task.userId]) {
+        completed[task.userId]++;
+      } else {
+        completed[task.userId] = 1;
       }
-      object[`${num}`] = count;
     }
-    console.log(object);
+  }
+  console.log(completed);
   }
 });
